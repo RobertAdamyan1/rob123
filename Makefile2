@@ -1,0 +1,16 @@
+CXX = g++
+CXXFLAGS = -g -Wall
+TARGET = prime-calculator
+SRCS = prime-calculator.cpp
+OBJS = $(SRCS:.cpp=.o)
+
+all: $(TARGET)
+
+$(TARGET): $(OBJS)
+	$(CXX) $(CXXFLAGS) -o $(TARGET) $(OBJS)
+
+%.o: %.cpp
+	$(CXX) $(CXXFLAGS) -c $<
+
+clean:
+	rm -f $(OBJS) $(TARGET)
